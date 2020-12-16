@@ -7,4 +7,4 @@
   * Create a test notebook with output graphs etc
   * Create an example notebook based on example in book above
 * Investigate use of Bayesian approaches to provide inputs to FAIR
-* Investigate use of risk analyis is security architecture planning
+* Investigate use of risk analyis in security architecture planning
