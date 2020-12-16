@@ -6,4 +6,4 @@
 * Use of the python package (PyFair)[https://github.com/theonaunheim/pyfair]
   * Create a test notebook with output graphs etc
   * Create an example notebook based on example in book above
-* Investigate use of Bayesian approches to provide inputs to FAIR
+* Investigate use of Bayesian approaches to provide inputs to FAIR
