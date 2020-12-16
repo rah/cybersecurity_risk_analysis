@@ -1,0 +1,96 @@
+* Preface
+Notes taken from the book: "How to Measure Anything in Cybersecurity Risk"
+* Introduction
+Cybersecurity needs to make better choices through better analysis and understand reasoning about uncertainty. An approach is needed that provides a better means to measuring cybersecurity risk and improves on measuring the performance of cybersecurity risk analysis.
+
+Cybersecurity resources are limited, and so any given defense strategy must identify a return on risk mitigation. There is a need to measure and monetize risk and risk reduction in order to determine the best defense strategy to employ. In order to allocate limited resources for optimum risk reduction methods are needed to:
+- measure risk assessment
+- measure reduction in risk from a given defense, control, mitigation, or strategy
+- continuously and measurably improve on the above implemented methods
+
+Current methods of risk scoring and 5x5 matrices are a failure:
+- there is no evidence that current methods improve judgement
+- there is evidence that current methods add noise and error to the judgement process
+- there is published evidence that quantitative probabilistic methods are efective
+- misconceptions about basic statistics creates some obstacles for adopting better methods
+
+How risk and risk reduction is measured and determined is the basis for prioritising the use of resources. Risk measurements are a tool in proposing solutions and reveal how the solutions were selected in the first place.
+- cybersecurity can use the same quantitative language of risk analyis used in other domains
+- methods exist that have already been measured to be an improvement over expert intuition
+
+* Measurement
+One objection often raised is that some things in cybersecurity are simply not measurable. Often the definition of measurement is misundestood, the thing being measured is not well defined, and the method of measurement is not known.
+
+_Measurements_ are observations that quantitatively reduce uncertainty. Therefore a measurement does not require precision, that is to be exact without error. Additial measurements can remove some uncertainty and the quantification of the uncertainty is through probabilities (or the state of uncertainty of the observer). This view is know as a "Bayesian" interpretation, and Bayes Theorm describes how new information can update prior probabilities. For decision making the representation of uncertainty as a probability is an important starting point in all practical decisions.
+
+This distinction, that probability is not just the result of calculations on data, but can also reflect personal uncertainty is fundamental to the use of probability in risk analysis.
+
+The _object of measurement_ needs to be clearly defined as some things appear immeasurable because they have not been clearly defined. Concepts such as "threat", "business disruption", or "reputation damage" need clear definition as to what they mean exactly before measurement makes sense. The _object_ must be detectable as an amount such that it can be measured, so "reputation damage" may become loss of customers and revenue over a certain time period. Objects like "reputational damage" may also require multiple measures such a loss of customer revenue and increased marketing costs.
+
+Understanding why the measure is needed is also important, each measurement should ideally support some form of decision, such as better allocation of resources to reduce risk. Where:
+- _Risk_: A state of uncertainty where some of the possibilities involve a loss, catastrophe, or other undesirable ourcome
+- _Measurement of Risk_: A set of possibilities, each with quantified probabilities and quantified losses.
+
+The objection that insufficient data may be used, however a random sample of five values from any population will have a 93.75% chance of containing the median value of that population.
+
+* Simple Substitution Method
+Simple starting point for qualitative risk assessment that replaces the common risk matrix that involves a simple way to capture subjective estimates of likelihood and impact probabilistically.
+
+** Basic Steps
+1. Define a list of risks. Use the same risks that would be plotted on conventional risk matrix.
+2. Define a specific period of time over which that risk event could materialise. i.e. within the next 12 months
+3. For each risk, subjectively assign a probability that the stated event will occur in the stated time.
+4. For each risk, subjectively assign a range for a monetary loss if such an event occurs as a 90% confidence interval (CI)
+5. Get estimates from multiple experts if possible (independently). Average all probabilities to produce one upper and lower bound.
+
+Using ranges to represent uncertainty has advantages, but in order to compute the total loss is not as simple as to add, subtract, multiple, or divide a single point value. Monte Carlo simulation must be used to generate a large number of scenarios based on probabilities as inputs.
+* Measurment Approaches
+- Wherever possible, explicit, quantitative models based on objective historical data are preferred. The role of experts primarily would be to design and set up these models instead of being responsible for individual estimates.
+- Where we need to estimate probabilities and other quantities, experts can be trained to provide subjective probabilities that can be compared to observed reality.
+- The inconsistency of experts can be moderated with mathematical and collaborative methods to get an improvement in estimates. When using multiple experts, even simple averages of experts appear to be an improvement over individual experts.
+- Decomposition improves estimates, especially when faced with very high uncertainty. Models that force calculations to be explicit avoid many of the inference errors that experts tend to make.
+* Obstacles to Measuring Risk
+Obstacles to the better use of quantitative methods have to be recognized as simply being misunderstandings based on common fallicies:
+
+- Nothing is gained be the use of popular scales and matrices. They avoid none of the issues offered as a challenge to more quantitative methods (complexity of cybersecurity, human agents, changing technology etc.). In fact, they introduce vagueness of communication and bad math. They must be abandoned in all forms of risk analysis.
+
+- There is nothing modeled with qualitative scales that can't be modeled with quantitative, probabilistic methods, even if we use only the same source of data as most qualitative methods (i.e. the cybersecurity expert). These methods show a measurable improvement based on previous research. Their performance can also be measured after implementation since we can use standard statistical methods to compare risk assessments to observed reality.
+
+- Quantitative models have been implemented in many real environments. Dismissing these methods as "theoretical" is just a way of saying that they seem threatening to the person who used that label.
+* Decompose It: Unpacking the details
+
+** Prerequisites for decomposition
+
+- _Clear_: Everyone knows what you mean. You know what you mean.
+
+- _Observable_: What do you see when you see more of it? This doesn't mean you will necessarily have observed it but it is at least possible to observe and you will know it when you see it.
+
+- _Useful_: It has to matter to some decision. What would you do differently if you knew this? Many things we choose to measure in security seem to have no bearing on the decision we actually need to make.
+
+If a decomposition meets the above criteria and it actually reduces the uncertainty, then it is called an "informative" decomposition. If not then it may be better to use a simpler model.The use of speculative estimates can increase uncertainty and result in an "uninformative decomposition". An "informative decomposition" uses specific knowledge that the cybersecurity expert has about their environment.
+
+** Decomposition Rules
+
+1. Decompositions should leverage what you are better at estimating or data you can obtain (i.e. don't decompose into quantities that are even more speculative than the first)
+
+2. Check your decomposition against a directly estimated range with a simulation. You might decide to toss the decomposition if it produces results you think are absurd, or you might decide your original range is the one that needs updating.
+
+*** Considerations
+
+To reduce uncertainty by multiplying two decomposed variables, the ratio of the upper and lower bounds of the decomposed variables should be much less than a third of the ratio of the original variable bounds. If most of the uncertainty is in one variable, then the decomposed variable must be much less than the original variable. If variable are correlated, the decomposition must take this into consideration. If there is sufficient data to estimate a distribution, further decomposition may not provide more benefit.
+
+* Calibrated Estimates
+
+The majority of untrained people are overconfident in estimates involving probability and confidence limits. There are a number of techniques that can improve the accuracy of their estimates:
+
+- _Repetition and feedback_: Take several tests in quick succession, assessing how well you did after each one and attempting to improve your performance on the next one
+
+- _Equivalent bets_: For each estimate, set up the equivalent bet to test if that range or probability really reflects your uncertainty.
+
+- _Consider two pros and two cons_: Think of at least two reasons why you should be confident in your assessment and two reasons you could be wrong.
+
+- _Avoid anchoring_: Think of range questions as two separate binary questions of the form "Are you 95% certain that the true value is over/under the lower/upper bound.
+
+- _Reverse the anchoring effect_: Start with extremly wide ranges and narrow them with the "absurdity test" as you eliminate highly unlikely values.
+
+* Reducing Uncertainty with Bayesian Methods
